@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {
-  Text,
+  text,
   View,
   StyleSheet,
-  TextInput,
+  textInput,
   TouchableOpacity,
   Image,
-  Alert
+  Alert,
 } from 'react-native';
 import { Header } from 'react-native-elements';
 import db from './localdb';
@@ -21,14 +21,20 @@ export default class App extends React.Component {
       phonicSounds: [],
     };
   }
+
+  //Adding a bunch of comments to make changes and look smart
+
+
+  //fun fact this really doesnt work
+
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.ViewContainer}>
         <Header
           backgroundColor={'#9c8210'}
           centerComponent={{
-            text: 'Monkey Chunky',
-            style: { color: '#fff', fontSize: 20 },
+            text: 'Word Chunks!',
+            style: { color: '#fff', fontSize: 15 },
           }}
         />
 
@@ -40,9 +46,9 @@ export default class App extends React.Component {
           }}
         />
 
-        <TextInput
+        <textInput
           style={styles.inputBox}
-          onChangeText={text => {
+          onChangetext={text => {
             this.setState({ text: text });
           }}
           value={this.state.text}
@@ -57,7 +63,7 @@ export default class App extends React.Component {
             ):
             Alert.alert("The word does not exist in our database");
           }}>
-          <Text style={styles.buttonText}>GO</Text>
+          <text style={styles.buttontext}>GO</text>
         </TouchableOpacity>
         <View>
           {this.state.chunks.map((item, index) => {
@@ -76,7 +82,7 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  ViewContai: {
     flex: 1,
     backgroundColor: '#b8b8b8',
   },
@@ -91,19 +97,19 @@ const styles = StyleSheet.create({
   },
   goButton: {
     width: '50%',
-    height: 55,
+    height: 50,
     alignSelf: 'center',
-    padding: 10,
-    margin: 10,
+    padding: 5,
+    margin: 5,
   },
-  buttonText: {
+  buttontext: {
     textAlign: 'center',
     fontSize: 30,
     fontWeight: 'bold',
   },
   imageIcon: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
     marginLeft: 95,
   }
 });
